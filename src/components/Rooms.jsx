@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { RoomContext } from '../context/RoomContext';
+import Room from '../components/Room';
 
 const Rooms = () => {
   const { rooms } = useContext(RoomContext);
