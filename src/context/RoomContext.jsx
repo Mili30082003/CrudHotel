@@ -1,24 +1,16 @@
-// Rooms.jsx
-import React, { useContext } from 'react';
-import { RoomContext } from '../context/RoomContext';
-import Room from '../components/Room'; // Asegúrate de que Room está definido
+import React, { createContext, useState } from 'react';
+import { roomData } from '../data'; // Asegúrate de que la ruta sea correcta
 
-const Rooms = () => {
-  const { rooms } = useContext(RoomContext);
-  console.log(rooms); // Verifica que rooms tenga datos
+// Crear el contexto
+export const RoomContext = createContext();
+
+// Proveedor del contexto
+export const RoomProvider = ({ children }) => {
+  const [rooms, setRooms] = useState(roomData); // Inicializa el estado con tus datos de habitaciones
 
   return (
-    <div>
-      <h2>Rooms</h2>
-      <ul>
-        {rooms.map((room) => (
-          <li key={room.id}>
-            <Room room={room} /> {/* Aquí usas el componente Room para mostrar los detalles de cada habitación */}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <RoomContext.Provider value={{ rooms }}>
+      {children}
+    </RoomContext.Provider>
   );
 };
-
-export default Rooms;
