@@ -1,15 +1,12 @@
-import React, {createContext, useEffect, useState} from 'react';
-
-
-
-
-//data
-import { roomData } from '../data';
+import React from 'react';
+import Rooms from '../components/Rooms';
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <Rooms />
+    </>
+  );
+};
 
-export default Home
+export default Home;

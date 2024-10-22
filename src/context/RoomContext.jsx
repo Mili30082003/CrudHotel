@@ -1,12 +1,13 @@
 import React, { createContext, useState } from 'react';
-import { roomData } from '../data'; // Asegúrate de que la ruta sea correcta
 
-// Crear el contexto
+// data
+import { roomData } from '../data';
+
+// create context
 export const RoomContext = createContext();
 
-// Proveedor del contexto
-export const RoomProvider = ({ children }) => {
-  const [rooms, setRooms] = useState(roomData); // Inicializa el estado con tus datos de habitaciones
+const RoomProvider = ({ children }) => {
+  const [rooms, setRooms] = useState(roomData);
 
   return (
     <RoomContext.Provider value={{ rooms }}>
@@ -14,3 +15,6 @@ export const RoomProvider = ({ children }) => {
     </RoomContext.Provider>
   );
 };
+
+export default RoomProvider;
+
