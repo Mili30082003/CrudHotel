@@ -1,20 +1,24 @@
 import React, { useContext } from 'react';
 import { RoomContext } from '../context/RoomContext';
+import Room from './Room'; // Ensure this path is correct
+import '../index.css';
+
 
 
 const Rooms = () => {
   const { rooms } = useContext(RoomContext);
-  console.log(rooms); // Aquí deberías ver los datos de las habitaciones
-
+   
   return (
-    <div>
-      <h2>Rooms</h2>
-      <ul>
-        {rooms.map((room) => (
-          <li key={room.id}>{room.name}</li> // Asumiendo que cada habitación tiene un `id` y un `name`
-        ))}
-      </ul>
-    </div>
+    <section className='py-24'>
+      <div className='container mx-auto lg:px-0'>
+    {/* grid */}
+    <div> 
+    {rooms.map((room)=> {
+        return <Room room={room} key={room.id}></Room>
+      })}
+      </div>
+      </div>
+    </section>
   );
 };
 
